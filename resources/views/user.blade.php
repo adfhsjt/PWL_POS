@@ -14,6 +14,9 @@
                 <th>Nama</th>
                 <th>ID Level Pengguna</th>
             </tr>
+            {{-- <tr>
+                <th>Jumlah Pengguna</th>
+            </tr> --}}
             {{-- @foreach ($data as $d)
                 <tr>
                     <td>{{$d->user_id}}</td>
@@ -28,6 +31,9 @@
                 <td>{{$data->nama}}</td>
                 <td>{{$data->level_id}}</td>
             </tr>
+            {{-- <tr>
+                <td>{{$data}}</td>
+            </tr> --}}
         </table>
     </body>
 </html>
