@@ -18,6 +18,22 @@
                     {{ session('error') }}
                 </div>
             @endif
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group-row">
+                        <label for="col-1 control-label col-form-label">Filter:</label>
+                        <div class="col-3">
+                            <select name="level_id" id="level_id" class="form-control" required>
+                                <option value="">- Semua -</option>
+                                @foreach ($level as $item)
+                                    <option value="{{ $item->level_id }}">{{ $item->level_nama }}</option>
+                                @endforeach
+                            </select>
+                            <small class="form-text text-muted">Level Pengguna</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <table class="table table-bordered table-striped table-hover table-sm" id="table_user">
                 <thead>
                     <tr>
@@ -43,14 +59,17 @@
                 ajax: {
                     "url": "{{ url('user/list') }}",
                     "dataType": "json",
-                    "type": "POST"
+                    "type": "POST",
+                    "data" : function (d) {
+                        d.level_id = $('#level_id').val();
+                    }
                 },
                 columns: [{
                     // nomor urut dari laravel datatable addIndexColumn()
-                    data: "DT_RowIndex",
-                    className: "text-center",
-                    orderable: false,
-                    searchable: false
+                    data: "user_id",
+                    className: "",
+                    orderable: true,
+                    searchable: true
                 }, {
                     data: "username",
                     className: "",
@@ -75,6 +94,9 @@
                     orderable: false,
                     searchable: false
                 }]
+            });
+            $('#level_id').on('change', function() {
+                dataUser.ajax.reload();
             });
         });
     </script>
