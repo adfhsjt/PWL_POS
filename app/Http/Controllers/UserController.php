@@ -283,4 +283,10 @@ confirm(\'Apakah Anda yakit menghapus data ini?\');">Hapus</button></form>';*/
         }
         return redirect('/');
     }
+
+    public function show_ajax($id){
+        $user = UserModel::find($id);
+        $level = LevelModel::find($user->level_id);
+        return view('user.show_ajax', ['user' => $user, 'level' => $level]);
+    }
 }
