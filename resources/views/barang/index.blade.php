@@ -1,10 +1,13 @@
 @extends('layouts.template')
 @section('content')
+    <div id="myModal" class="modal fade animate shake" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"
+        data-width="75%" aria-hidden="true"></div>
     <div class="card card-outline card-primary">
         <div class="card-header">
             <h3 class="card-title">{{ $page->title }}</h3>
             <div class="card-tools">
                 <a class="btn btn-sm btn-primary mt-1" href="{{ url('barang/create') }}">Tambah</a>
+                <button onclick="modalAction('{{ url('barang/create_ajax') }}')" class="btn btn-sm btn-success mt-1">Tambah Ajax</button>
             </div>
         </div>
         <div class="card-body">
@@ -54,8 +57,15 @@
 @endpush
 @push('js')
     <script>
+        function modalAction(url = '') {
+            $('#myModal').load(url, function() {
+                $('#myModal').modal('show');
+            });
+        }
+
+        var dataBarang;
         $(document).ready(function() {
-            var dataBarang = $('#table_barang').DataTable({
+            dataBarang = $('#table_barang').DataTable({
                 serverSide: true,
                 ajax: {
                     "url": "{{ url('barang/list') }}",
@@ -66,7 +76,7 @@
                     }
                 },
                 columns: [{
-                        data: "DT_RowIndex",
+                        data: "barang_id",
                         className: "text-center",
                         orderable: false,
                         searchable: false
