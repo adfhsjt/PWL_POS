@@ -196,7 +196,11 @@ confirm(\'Apakah Anda yakit menghapus data ini?\');">Hapus</button></form>';*/
                 ]);
             }
 
-            UserModel::create($request->all());
+            $data = $request->all();
+            $data['password'] = bcrypt($request->password);
+            $data['created_at'] = now();
+
+            UserModel::create($data);
             return response()->json([
                 'status' => true,
                 'message' => 'Data user berhasil disimpan'

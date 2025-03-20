@@ -8,5 +8,15 @@
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Control Sidebar</h5>
+      <ul class="list-unstyled">
+          <li>
+              <a href="{{ url('logout') }}" class="btn btn-danger btn-block">
+                  <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+          </li>
+      </ul>
+  </div>
   </aside>
   <!-- /.control-sidebar -->
