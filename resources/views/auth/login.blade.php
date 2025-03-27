@@ -60,6 +60,9 @@
                         <!-- /.col -->
                     </div>
                 </form>
+                <div class="text-center mt-3">
+                    <p class="mb-0">Don't have an account? <a href="{{ url('/register') }}" class="text-center">Register</a></p>
+                </div>
             </div>
             <!-- /.card-body -->
         </div>
