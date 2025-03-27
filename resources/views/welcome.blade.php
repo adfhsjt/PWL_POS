@@ -9,6 +9,7 @@
     </div>
     <div class="card-body">
         Selamat datang semua, ini adalah halaman utama dari aplikasi ini.
+        <h1>{{ session('username')}}</h1>
     </div>
 </div>
 @endsection
