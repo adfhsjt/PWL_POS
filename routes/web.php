@@ -78,6 +78,8 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/delete_ajax', [BarangController::class, 'confirm_ajax']);
             Route::delete('/{id}/delete_ajax', [BarangController::class, 'delete_ajax']);
             Route::delete('/{id}', [BarangController::class, 'destroy']);
+            Route::get('/import', [BarangController::class, 'import']);
+            Route::post('/import_ajax', [BarangController::class, 'import_ajax']);
         });
     
         Route::group(['prefix' => 'kategori'], function () {
