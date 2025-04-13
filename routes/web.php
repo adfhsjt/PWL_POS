@@ -20,8 +20,17 @@ Route::post('register', [AuthController::class, 'postregister']);
 
 Route::middleware(['auth'])->group(function () {
 
+    Route::middleware(['auth', 'check.userid'])->group(function () {
+        Route::get('/profile/{id}/edit_ajax', [UserController::class, 'profile_edit_ajax']);
+        Route::put('/profile/{id}/update_ajax', [UserController::class, 'profile_update_ajax']);
+        Route::put('/profile/{id}/foto_update_ajax', [UserController::class, 'foto_profile_update_ajax']);
+        
+    });
+
     Route::get('/', [WelcomeController::class, 'index']);
     Route::post('/logout', [AuthController::class, 'logout']);
+
+
 
     Route::middleware(['authorize:ADM'])->group(function () {
         Route::group(['prefix' => 'user'], function () {
