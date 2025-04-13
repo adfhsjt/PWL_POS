@@ -100,27 +100,23 @@
         </tr>
     </table>
 
-    <h3 class="text-center">LAPORAN DATA BARANG</h4>
+    <h3 class="text-center">LAPORAN DATA KATEGORI</h4>
         <table class="border-all">
             <thead>
                 <tr>
                     <th class="text-center">No</th>
-                    <th>Kode Barang</th>
-                    <th>Nama Barang</th>
-                    <th class="text-right">Harga Beli</th>
-                    <th class="text-right">Harga Jual</th>
-                    <th>Kategori</th>
+                    <th class="text-center">Kategori ID</th>
+                    <th>Kategori Kode</th>
+                    <th>Kategori Nama</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($barang as $b)
+                @foreach ($kategori as $l)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td>{{ $b->barang_kode }}</td>
-                        <td>{{ $b->barang_nama }}</td>
-                        <td class="text-right">{{ number_format($b->harga_beli, 0, ',', '.') }}</td>
-                        <td class="text-right">{{ number_format($b->harga_jual, 0, ',', '.') }}</td>
-                        <td>{{ $b->kategori->kategori_nama }}</td>
+                        <td class="text-center">{{ $l->kategori_id }}</td>
+                        <td>{{ $l->kategori_kode }}</td>
+                        <td>{{ $l->kategori_nama }}</td>
                     </tr>
                 @endforeach
             </tbody>

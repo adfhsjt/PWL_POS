@@ -3,7 +3,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Kesalahan</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <div class="alert alert-danger">
@@ -18,35 +19,32 @@
     <div id="modal-master" class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Data User</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h5 class="modal-title" id="exampleModalLabel">Detail Data Supplier</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <table class="table table-bordered table-striped table-hover table-sm">
                     <tr>
-                        <th>Supplier ID</th>
+                        <th>ID</th>
                         <td>{{ $supplier->supplier_id }}</td>
                     </tr>
                     <tr>
-                        <th>Supplier Kode</th>
+                        <th>Kode</th>
                         <td>{{ $supplier->supplier_kode }}</td>
                     </tr>
                     <tr>
-                        <th>Supplier Nama</th>
+                        <th>Nama</th>
                         <td>{{ $supplier->supplier_nama }}</td>
                     </tr>
                     <tr>
-                        <th>Supplier Alamat</th>
+                        <th>Alamat</th>
                         <td>{{ $supplier->supplier_alamat }}</td>
-                    </tr>
-                    <tr>
-                        <th>Supplier Telepon</th>
-                        <td>{{ $supplier->supplier_telp }}</td>
                     </tr>
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" data-dismiss="modal" class="btn btn-warning">Tutup</button>
+                <button type="button" data-dismiss="modal" class="btn btn-warning">Batal</button>
             </div>
         </div>
     </div>
